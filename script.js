@@ -59,8 +59,10 @@ btnmode.addEventListener("click", () => {
 // Functions
 
 let darkMode = false; // Then Apply Dark Mode
+
 // Initialise UI
 function init(){
+
 
   //1- WITHOUT CONSIDERING USER PREFERENCE:-
   const value = localStorage.getItem("dark-mode");
@@ -171,7 +173,7 @@ function updateProfile(data) {
     userName.innerText = data.name === null ? data.login : data.name;
     user.innerText = `@${data.login}`;
     user.href = `${data.html_url}`;
-    datesegments = data.created_at.split("T").shift().split("-");
+    let datesegments = data.created_at.split("T").shift().split("-");
     date.innerText = `Joined ${datesegments[2]} ${months[datesegments[1] - 1]} ${datesegments[0]}`;
     bio.innerText = data.bio == null ? "This profile has no bio" : `${data.bio}`;
     repos.innerText = `${data.public_repos}`;
